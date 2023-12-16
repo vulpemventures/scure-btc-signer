@@ -151,6 +151,25 @@ export const TEST_NETWORK: typeof NETWORK = {
   wif: 0xef,
 };
 
+export const LIQUID_NETWORK: typeof NETWORK = {
+  bech32: 'ex',
+  pubKeyHash: 0x39,
+  scriptHash: 0x27,
+  wif: 0x80,
+};
+export const LIQUID_TEST_NETWORK: typeof NETWORK = {
+  bech32: 'tex',
+  pubKeyHash: 0x24,
+  scriptHash: 0x13,
+  wif: 0xef,
+};
+export const LIQUID_REGTEST_NETWORK: typeof NETWORK = {
+  bech32: 'ert',
+  pubKeyHash: 0xeb,
+  scriptHash: 0x4b,
+  wif: 0xef,
+};
+
 export const PRECISION = 8;
 export const DEFAULT_VERSION = 2;
 export const DEFAULT_LOCKTIME = 0;

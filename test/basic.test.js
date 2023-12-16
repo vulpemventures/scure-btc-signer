@@ -44,6 +44,41 @@ should('BTC: P2PKH addresses', () => {
   deepStrictEqual(btc.p2pkh(pub).address, ADDR_1);
 });
 
+// Liquid
+
+should('LQ: Bech32 addresses', () => {
+  const priv = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
+  deepStrictEqual(btc.WIF(btc.LIQUID_NETWORK).encode(priv), 'KwFfNUhSDaASSAwtG7ssQM1uVX8RgX5GHWnnLfhfiQDigjioWXHH');
+  deepStrictEqual(btc.getAddress('wpkh', priv, btc.LIQUID_NETWORK), 'ex1q0xcqpzrky6eff2g52qdye53xkk9jxkvrane0fw');
+  const pub = secp256k1.getPublicKey(priv, true);
+  deepStrictEqual(btc.p2wpkh(pub, btc.LIQUID_NETWORK).address, 'ex1q0xcqpzrky6eff2g52qdye53xkk9jxkvrane0fw');
+});
+
+should('LQ TEST: Bech32 addresses', () => {
+  const priv = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
+  deepStrictEqual(btc.WIF(btc.LIQUID_TEST_NETWORK).encode(priv), 'cMceqPhHedrhbcR9eXgzmfWy7kRqLyAxMYwFT6ABDWsiwUp9Nsq9');
+  deepStrictEqual(btc.getAddress('wpkh', priv, btc.LIQUID_TEST_NETWORK), 'tex1q0xcqpzrky6eff2g52qdye53xkk9jxkvr84tx49');
+  const pub = secp256k1.getPublicKey(priv, true);
+  deepStrictEqual(btc.p2wpkh(pub, btc.LIQUID_TEST_NETWORK).address, 'tex1q0xcqpzrky6eff2g52qdye53xkk9jxkvr84tx49');
+});
+
+should('LQ REGTEST: Bech32 addresses', () => {
+  const priv = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
+  deepStrictEqual(btc.WIF(btc.LIQUID_REGTEST_NETWORK).encode(priv), 'cMceqPhHedrhbcR9eXgzmfWy7kRqLyAxMYwFT6ABDWsiwUp9Nsq9');
+  deepStrictEqual(btc.getAddress('wpkh', priv, btc.LIQUID_REGTEST_NETWORK), 'ert1q0xcqpzrky6eff2g52qdye53xkk9jxkvr8pnhk5');
+  const pub = secp256k1.getPublicKey(priv, true);
+  deepStrictEqual(btc.p2wpkh(pub, btc.LIQUID_REGTEST_NETWORK).address, 'ert1q0xcqpzrky6eff2g52qdye53xkk9jxkvr8pnhk5');
+});
+
+should('LQ: P2PKH addresses', () => {
+  const priv = hex.decode('0101010101010101010101010101010101010101010101010101010101010101');
+  deepStrictEqual(btc.WIF(btc.LIQUID_NETWORK).encode(priv), 'KwFfNUhSDaASSAwtG7ssQM1uVX8RgX5GHWnnLfhfiQDigjioWXHH');
+  deepStrictEqual(btc.getAddress('pkh', priv, btc.LIQUID_NETWORK), "Q8MojEvSYmhrEkaGcVm5XjMWCGXULV47BU");
+  const pub = secp256k1.getPublicKey(priv, true);
+  deepStrictEqual(btc.p2pkh(pub, btc.LIQUID_NETWORK).address, "Q8MojEvSYmhrEkaGcVm5XjMWCGXULV47BU");
+});
+
+
 // Same as above
 const TX_TEST_OUTPUTS = [
   ['1cMh228HTCiwS8ZsaakH8A8wze1JR5ZsP', 10n],
