@@ -1,6 +1,6 @@
-# scure-btc-signer
+# btc-signer
 
-Audited & minimal library for creating, signing & decoding Bitcoin transactions.
+Fork of [scure-btc-signer](https://github.com/paulmillr/scure-btc-signer), an audited & minimal library for creating, signing & decoding Bitcoin and Elements transactions.
 
 - 🔒 [**Audited**](#security) by an independent security firm
 - ✍️ Create transactions, inputs, outputs, sign them
@@ -11,33 +11,29 @@ Audited & minimal library for creating, signing & decoding Bitcoin transactions.
 - 👥 Multisig support
 - 🪶 ~2600 lines
 
-Initial development has been funded by [Ryan Shea](https://shea.io). Check out [the demo](https://signerdemo.micro-btc.dev/) & [its github](https://github.com/shea256/micro-btc-web-demo).
+## Roadmap
 
-### This library belongs to _scure_
-
-> **scure** — audited micro-libraries.
-
-- Zero or minimal dependencies
-- Highly readable TypeScript / JS code
-- PGP-signed releases and transparent NPM builds
-- Check out [homepage](https://paulmillr.com/noble/#scure) & all libraries:
-  [base](https://github.com/paulmillr/scure-base),
-  [bip32](https://github.com/paulmillr/scure-bip32),
-  [bip39](https://github.com/paulmillr/scure-bip39),
-  [btc-signer](https://github.com/paulmillr/scure-btc-signer),
-  [starknet](https://github.com/paulmillr/scure-starknet)
+- [x] Liquid Network prefixes
+- [ ] Transaction
+  - [ ] Encode/decode
+  - [ ] Inputs
+  - [ ] Outputs
+  - [ ] Basic transaction sign
+  - [ ] PSET multi-sig example
+- [ ] Confidential Transaction
+- [ ] PSET (PSBTv2)
 
 ## Usage
 
-> npm install @scure/btc-signer
+> npm install @vulpemventures/btc-signer
 
 We support all major platforms and runtimes.
 For [Deno](https://deno.land), ensure to use [npm specifier](https://deno.land/manual@v1.28.0/node/npm_specifiers).
 For React Native, you may need a [polyfill for crypto.getRandomValues](https://github.com/LinusU/react-native-get-random-values).
 
 ```ts
-import * as btc from '@scure/btc-signer';
-// import * as btc from "npm:@scure/btc-signer@1.0.0"; // Deno
+import * as btc from '@vulpemventures/btc-signer';
+// import * as btc from "npm:@vulpemventures/btc-signer@1.0.0"; // Deno
 ```
 
 ### Table of Contents
@@ -77,11 +73,11 @@ BTC has several UTXO types:
 For test examples, the usage is as following:
 
 ```sh
-npm install @scure/btc-signer @scure/base assert
+npm install @vulpemventures/btc-signer @scure/base assert
 ```
 
 ```ts
-import * as btc from '@scure/btc-signer';
+import * as btc from '@vulpemventures/btc-signer';
 import { hex } from '@scure/base';
 import { deepStrictEqual, throws } from 'assert';
 ```
@@ -870,4 +866,4 @@ If you see anything unusual: investigate and report.
 
 ## License
 
-MIT (c) Paul Miller [(https://paulmillr.com)](https://paulmillr.com), see LICENSE file.
+MIT (c) Paul Miller [(https://paulmillr.com)](https://paulmillr.com), Marco Argentieri [(https://github.com/tiero)](https://github.com/tiero)  see LICENSE file.
